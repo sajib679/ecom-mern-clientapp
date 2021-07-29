@@ -13,7 +13,6 @@ const ProductDetails = (props) => {
   const product = useSelector((state) => state.product.productDetails);
   const dispatch = useDispatch();
 
-  const [image, setImage] = useState(null);
   useEffect(() => {
     dispatch(getProductsById(productId));
   }, [productId]);
@@ -27,7 +26,7 @@ const ProductDetails = (props) => {
         >
           <Row className="mb-4">
             <Col sm={12} md={6}>
-              {product.productPictures.length > 0 && (
+              {product.productPictures?.length > 0 && (
                 <>
                   <Row>
                     <Card.Img
