@@ -27,8 +27,6 @@ const OrderPage = (props) => {
     }
   }, [auth.authenticate]);
 
-  console.log(user);
-
   return (
     <Layout>
       {auth.authenticate ? (

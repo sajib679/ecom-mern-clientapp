@@ -7,9 +7,7 @@ import "./styles.css";
 
 const ProductListPage = (props) => {
   const renderProduct = () => {
-    console.log(props);
     const params = getParams(props.location.search);
-    console.log(params);
     let productPageLayout = null;
     switch (params.type) {
       case "store":

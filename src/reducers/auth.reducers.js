@@ -16,7 +16,6 @@ const initState = {
 };
 // eslint-disable-next-line import/no-anonymous-default-export
 const authReducer = (state = initState, action) => {
-  console.log(action);
   switch (action.type) {
     case authConstants.LOGIN_REQUEST:
       state = {

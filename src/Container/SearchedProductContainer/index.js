@@ -9,7 +9,6 @@ const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     setSearchedProduct(Product);
-    console.log(searchedProduct);
   }, [Product, searchedProduct]);
   return (
     <>

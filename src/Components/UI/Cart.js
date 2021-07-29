@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { IoIosCart } from "react-icons/io";
-
-/**
- * @author
- * @function Cart
- **/
+import { useSelector } from "react-redux";
 
 const Cart = ({ count }) => {
+  const cart = useSelector((state) => state.cart.cartItems);
+  const [itemCount, setItemCount] = useState(null);
+  useEffect(() => {
+    setItemCount(Object.keys(cart).length);
+  }, [itemCount, cart]);
+
   return (
     <div className="cart">
       <span style={{ margin: "0 5px", color: "#2874f0" }}>Cart</span>
       <div style={{ fontSize: "18px", position: "relative" }}>
-        {count > 0 && (
+        {itemCount > 0 && (
           <span
             style={{
               position: "absolute",
@@ -27,7 +29,7 @@ const Cart = ({ count }) => {
               right: "-6px",
             }}
           >
-            {count}
+            {itemCount}
           </span>
         )}
         <span style={{ color: "#2874f0" }}>

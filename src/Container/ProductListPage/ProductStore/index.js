@@ -24,7 +24,6 @@ const ProductStore = (props) => {
   return (
     <>
       {Object.keys(product.productsByPrice).map((items, index) => {
-        console.log(items, index);
         return (
           product.productsByPrice[items].length > 0 && (
             <ProductsCard key={index} title={`${slug}  ${price[items]}`}>

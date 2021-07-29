@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Badge from "react-bootstrap/Badge";
-import { IoIosCart } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsByName, resetSearch, searchFocused } from "../../actions";
 import { login, signout, signup } from "../../actions/auth.action";
@@ -17,11 +15,9 @@ const Header = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = useSelector((state) => state.auth);
-  const cart = useSelector((state) => state.cart.cartItems);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchTermLength, setSearchTermLength] = useState(0);
 
-  const [itemCount, setItemCount] = useState(null);
   const [focused, setFocused] = useState(false);
   const dispatch = useDispatch();
 
@@ -36,10 +32,6 @@ const Header = () => {
   const inputRef = useRef(null);
 
   const prevCount = usePrevious(searchTerm?.length);
-
-  useEffect(() => {
-    setItemCount(Object.keys(cart).length);
-  }, [cart]);
 
   const handleFocus = () => {
     setFocused(true);
@@ -74,7 +66,6 @@ const Header = () => {
   useEffect(() => {
     setSearchTerm(searchTerm);
     setSearchTermLength(searchTermLength);
-    console.log(searchTerm, searchTermLength, prevCount);
     dispatch(searchFocused(focused, searchTermLength));
     searchByName(searchTerm);
   }, [searchTerm]);
@@ -211,7 +202,7 @@ const Header = () => {
         <div className="rightMenu">
           <div>
             <a href="/cart" style={{ textDecorationLine: "none" }}>
-              <Cart count={itemCount} />
+              <Cart />
             </a>
           </div>
           <More />

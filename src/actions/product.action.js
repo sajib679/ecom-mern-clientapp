@@ -25,7 +25,6 @@ export const getProductPage = (params) => {
   return async (dispatch) => {
     dispatch({ type: pageConstants.GET_PAGE_REQUEST });
     const res = await axiosInstance.get(`page/${cid}/${type}`);
-    console.log(res);
     if (res.status === 200) {
       dispatch({
         type: pageConstants.GET_PAGE_SUCCESS,
@@ -41,8 +40,6 @@ export const getProductPage = (params) => {
 };
 
 export const getProductsById = (productId) => {
-  console.log(productId);
-
   return async (dispatch) => {
     dispatch({ type: productConstants.GET_PRODUCT_BY_ID_REQUEST });
     const res = await axiosInstance.get(`p/product/${productId}`);
@@ -61,8 +58,6 @@ export const getProductsById = (productId) => {
 };
 
 export const getProductsByName = (searchTerm) => {
-  console.log(searchTerm);
-
   return async (dispatch) => {
     dispatch({ type: productConstants.GET_PRODUCT_BY_NAME_REQUEST });
     const res = await axiosInstance.get(`search/${searchTerm}`);

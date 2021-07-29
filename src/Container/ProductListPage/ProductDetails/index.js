@@ -9,7 +9,6 @@ import { IoMdCart, IoIosAddCircle } from "react-icons/io";
 import "./style.css";
 const ProductDetails = (props) => {
   const { productId } = props.match.params;
-  console.log(productId);
   const product = useSelector((state) => state.product.productDetails);
   const dispatch = useDispatch();
 
@@ -30,30 +29,37 @@ const ProductDetails = (props) => {
               {product.productPictures?.length > 0 && (
                 <>
                   <Row>
-                    <Card.Img
-                      style={{ width: "auto", height: "400px" }}
-                      src={imageUrl(
-                        image ? image : product.productPictures[0].img
-                      )}
-                    ></Card.Img>
-                  </Row>
-                  <Row>
-                    {product.productPictures.map((img) => (
-                      <div
-                        className="m-2"
-                        style={{ outline: "none" }}
-                        onClick={() => setImage(img.img)}
-                        key={img.img}
-                      >
-                        <Card.Img
-                          style={{
-                            width: "auto",
-                            height: "80px",
-                          }}
-                          src={imageUrl(img.img)}
-                        ></Card.Img>
-                      </div>
-                    ))}
+                    <Col sm={3} md={4}>
+                      {product.productPictures.map((img) => (
+                        <div
+                          className="m-2"
+                          style={{ outline: "none" }}
+                          onClick={() => setImage(img.img)}
+                          key={img.img}
+                        >
+                          <Card.Img
+                            style={{
+                              width: "auto",
+                              height: "80px",
+                            }}
+                            src={imageUrl(img.img)}
+                          ></Card.Img>
+                        </div>
+                      ))}
+                    </Col>
+
+                    <Col sm={9} md={8}>
+                      <Card.Img
+                        style={{
+                          maxWidth: "400px",
+                          width: "auto",
+                          height: "400px",
+                        }}
+                        src={imageUrl(
+                          image ? image : product.productPictures[0].img
+                        )}
+                      ></Card.Img>
+                    </Col>
                   </Row>
                 </>
               )}
