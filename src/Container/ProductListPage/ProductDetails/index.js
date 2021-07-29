@@ -27,14 +27,12 @@ const ProductDetails = (props) => {
         >
           <Row className="mb-4">
             <Col sm={12} md={6}>
-              {product.productPictures !== undefined && (
+              {product.productPictures.length > 0 && (
                 <>
                   <Row>
                     <Card.Img
                       style={{ width: "auto", height: "400px" }}
-                      src={imageUrl(
-                        image ? image : product.productPictures[0].img
-                      )}
+                      src={imageUrl(product.productPictures[0].img)}
                     ></Card.Img>
                   </Row>
                   <Row>

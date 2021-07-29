@@ -60,7 +60,6 @@ export const getProductsById = (productId) => {
   };
 };
 
-
 export const getProductsByName = (searchTerm) => {
   console.log(searchTerm);
 

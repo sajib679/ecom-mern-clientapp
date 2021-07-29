@@ -4,6 +4,7 @@ import { getProductsByslug } from "../../../actions";
 import ProductsCard from "../../../Components/ProductsCard";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { imageUrl } from "../../../urlConfig";
 const ProductStore = (props) => {
   const initialState = {
     under5k: "Under 5,000 Tk.",
@@ -36,7 +37,7 @@ const ProductStore = (props) => {
                     <div className="product-container">
                       <div className="productImg-container">
                         <img
-                          src={`http://localhost:2000/public/${product.productPictures[0].img}`}
+                          src={imageUrl(product.productPictures[0].img)}
                           alt=""
                         ></img>
                       </div>

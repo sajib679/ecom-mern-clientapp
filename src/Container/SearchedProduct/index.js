@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { imageUrl } from "../../../src/urlConfig";
 import { searchFocused } from "../../actions";
 import { AiFillCloseCircle } from "react-icons/ai";
 import "./styles.css";
@@ -56,7 +57,7 @@ const SearchedProductStore = ({ searchedProduct }) => {
                   <div className="product-container">
                     <div className="productImg-container">
                       <img
-                        src={`http://localhost:2000/public/${product.productPictures[0].img}`}
+                        src={imageUrl(product.productPictures[0].img)}
                         alt=""
                       ></img>
                     </div>
