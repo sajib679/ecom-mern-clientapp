@@ -13,6 +13,7 @@ const ProductDetails = (props) => {
   const product = useSelector((state) => state.product.productDetails);
   const dispatch = useDispatch();
 
+  const [image, setImage] = useState(null);
   useEffect(() => {
     dispatch(getProductsById(productId));
   }, [productId]);
@@ -31,7 +32,9 @@ const ProductDetails = (props) => {
                   <Row>
                     <Card.Img
                       style={{ width: "auto", height: "400px" }}
-                      src={imageUrl(product.productPictures[0].img)}
+                      src={imageUrl(
+                        image ? image : product.productPictures[0].img
+                      )}
                     ></Card.Img>
                   </Row>
                   <Row>
@@ -75,7 +78,7 @@ const ProductDetails = (props) => {
                 icon={<IoMdCart />}
                 onClick={() => {
                   const { _id, name, price } = product;
-                  const img = product.productPictures[0].img;
+                  const img = product.productPictures[0]?.img;
                   dispatch(addToCart({ _id, name, price, img }));
                 }}
               />
@@ -91,7 +94,7 @@ const ProductDetails = (props) => {
                 icon={<IoIosAddCircle />}
                 onClick={() => {
                   const { _id, name, price } = product;
-                  const img = product.productPictures[0].img;
+                  const img = product.productPictures[0]?.img;
                   dispatch(addToCart({ _id, name, price, img }));
                   props.history.push(`/cart`);
                 }}
