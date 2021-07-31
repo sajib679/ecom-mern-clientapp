@@ -5,3 +5,4 @@ export * from "./auth.action";
 export * from "./cart.action";
 export * from "./user.action";
 export * from "./search.action";
+export * from "./banner.action";

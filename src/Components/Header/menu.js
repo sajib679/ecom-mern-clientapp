@@ -15,7 +15,7 @@ export const NonLoggedInMenu = ({ onClick, SignUp }) => (
       </span>
     }
     menus={[
-      { label: "Flipkart Plus Zone", href: "", icon: null },
+      { label: "Ecom Plus Zone", href: "", icon: null },
       { label: "Gift Cards", href: "", icon: null },
     ]}
     firstMenu={
@@ -44,7 +44,7 @@ export const LoggedInMenu = ({ userName, onClick }) => (
     }
     menus={[
       { label: "My Profile", href: "", icon: null },
-      { label: "Flipkart Plus Zone", href: "", icon: null },
+      { label: "Ecom Plus Zone", href: "", icon: null },
       { label: "Orders", href: "/account/orders", icon: null },
       { label: "Wishlist", href: "", icon: null },
       { label: "Rewards", href: "", icon: null },
@@ -70,7 +70,7 @@ export const More = () => (
     }
     menus={[
       { label: "Notification Preference", href: "", icon: null },
-      { label: "Sell on flipkart", href: "", icon: null },
+      { label: "Sell on Ecom", href: "", icon: null },
       { label: "24x7 Customer Care", href: "", icon: null },
       { label: "Advertise", href: "", icon: null },
       { label: "Download App", href: "", icon: null },
@@ -80,8 +80,12 @@ export const More = () => (
 
 export const Logo = () => (
   <div className="logo">
-    <a href="/#">
-      <img src={"#"} className="logoimage" alt="" />
+    <a href="/">
+      <img
+        src={"https://image.flaticon.com/icons/png/512/1162/1162499.png"}
+        className="logoimage"
+        alt=""
+      />
     </a>
     <a href="/#" style={{ marginTop: "-10px" }}>
       <span className="exploreText">Explore</span>

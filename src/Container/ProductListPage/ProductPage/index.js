@@ -8,6 +8,7 @@ import { Carousel } from "react-responsive-carousel";
 import { Container } from "react-bootstrap";
 import ProductsCard from "../../../Components/ProductsCard";
 import "./styles.css";
+import { imageUrl } from "../../../urlConfig";
 
 const ProductPage = (props) => {
   const dispatch = useDispatch();
@@ -31,16 +32,13 @@ const ProductPage = (props) => {
           {page.bannersImage &&
             page.bannersImage.map((img, index) => (
               <a href={img.navigateTo} key={index}>
-                <div style={{ height: "40vh", objectFit: "contain" }}>
+                <div className="wrapper-img-div">
                   <img
-                    style={{
-                      height: "40vh",
-                      objectFit: "contain",
-                    }}
-                    src={img.img}
+                    className="carousel-img-div"
+                    src={imageUrl(img.img)}
                     alt=""
                   />
-                  <p className="legend">Legend 1</p>
+                  <p className="legend">Legend</p>
                 </div>
               </a>
             ))}
@@ -54,7 +52,7 @@ const ProductPage = (props) => {
                   <a href={img.navigateTo}>
                     <img
                       className="productImg-container"
-                      src={img.img}
+                      src={imageUrl(img.img)}
                       alt=""
                     />
                   </a>

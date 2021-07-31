@@ -3,7 +3,7 @@
 }
 
 .productImg-container {
-  width: 150px;
+  width: auto;
   height: 150px;
   overflow: hidden;
   margin: 0 auto;
